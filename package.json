@@ -1,0 +1,14 @@
+{
+  "name": "evolvedsystems",
+  "version": "1.0.0",
+  "description": "evolved.systems blog",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafał Hirsz",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "matrix-blog": "file:../library"
+  }
+}
