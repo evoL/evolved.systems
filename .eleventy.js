@@ -16,7 +16,7 @@ module.exports = function (config) {
       .filter((p) => p.slug)
       .map((p) =>
         Object.assign(p, {
-          url: `/${p.slug}`,
+          url: `/${p.slug}/`,
         })
       );
   });
@@ -25,6 +25,7 @@ module.exports = function (config) {
     dir: {
       input: "src",
       output: "_site",
+      markdownTemplateEngine: "njk",
     },
   };
 };
