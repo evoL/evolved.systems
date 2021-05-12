@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const { BlogService } = require("matrix-blog");
 const { getMatrixClient } = require("./matrix");
+const { DateTime } = require("luxon");
 
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
@@ -17,6 +18,10 @@ module.exports = function (config) {
       .map((p) =>
         Object.assign(p, {
           url: `/${p.slug}/`,
+          date: DateTime.fromMillis(p.created_ms, { zone: "UTC" }).toISO(),
+          editDate:
+            p.edited_ms &&
+            DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toISO(),
         })
       );
   });
