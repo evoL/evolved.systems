@@ -7,8 +7,10 @@
   },
   "author": "Rafał Hirsz",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "matrix-blog": "file:../library"
+    "dotenv": "^9.0.2",
+    "matrix-blog": "file:../library",
+    "node-fetch": "^2.6.1"
   }
 }
