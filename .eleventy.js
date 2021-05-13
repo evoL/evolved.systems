@@ -38,6 +38,7 @@ module.exports = function (config) {
   config.addPassthroughCopy("static");
 
   // Compile Sass on build
+  config.addWatchTarget("src/css/");
   config.on("beforeBuild", () => {
     const result = sass.renderSync({
       file: "src/css/main.scss",
