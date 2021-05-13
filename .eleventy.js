@@ -3,6 +3,9 @@ require("dotenv").config();
 const { BlogService } = require("matrix-blog");
 const { getMatrixClient } = require("./matrix");
 const { DateTime } = require("luxon");
+const sass = require("sass");
+const CleanCSS = require("clean-css");
+const fs = require("fs-extra");
 
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
@@ -24,6 +27,22 @@ module.exports = function (config) {
             DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toISO(),
         })
       );
+  });
+
+  // Compile Sass on build
+  config.on("beforeBuild", () => {
+    const result = sass.renderSync({
+      file: "src/css/main.scss",
+      sourceMap: false,
+      outputStyle: "compressed",
+    });
+
+    const { styles } = new CleanCSS({}).minify(result.css);
+
+    fs.outputFile("_site/css/main.css", styles, (err) => {
+      if (err) throw err;
+      console.log("Wrote optimized CSS to _site/css/main.css");
+    });
   });
 
   return {

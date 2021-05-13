@@ -13,5 +13,10 @@
     "luxon": "^1.26.0",
     "matrix-blog": "file:../library",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "clean-css": "^5.1.2",
+    "fs-extra": "^8.1.0",
+    "sass": "^1.32.13"
   }
 }
