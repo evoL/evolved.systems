@@ -29,6 +29,9 @@ module.exports = function (config) {
       );
   });
 
+  // Copy static assets
+  config.addPassthroughCopy("static");
+
   // Compile Sass on build
   config.on("beforeBuild", () => {
     const result = sass.renderSync({
