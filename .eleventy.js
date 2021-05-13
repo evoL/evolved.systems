@@ -40,18 +40,22 @@ module.exports = function (config) {
   // Compile Sass on build
   config.addWatchTarget("src/css/");
   config.on("beforeBuild", () => {
-    const result = sass.renderSync({
-      file: "src/css/main.scss",
-      sourceMap: false,
-      outputStyle: "compressed",
-    });
+    try {
+      const result = sass.renderSync({
+        file: "src/css/main.scss",
+        sourceMap: false,
+        outputStyle: "compressed",
+      });
 
-    const { styles } = new CleanCSS({}).minify(result.css);
+      const { styles } = new CleanCSS({}).minify(result.css);
 
-    fs.outputFile("_site/css/main.css", styles, (err) => {
-      if (err) throw err;
-      console.log("Wrote optimized CSS to _site/css/main.css");
-    });
+      fs.outputFile("_site/css/main.css", styles, (err) => {
+        if (err) throw err;
+        console.log("Wrote optimized CSS to _site/css/main.css");
+      });
+    } catch (e) {
+      console.error(e);
+    }
   });
 
   return {
