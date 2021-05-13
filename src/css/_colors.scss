@@ -1,0 +1,14 @@
+:root {
+  --brown: #1c1606;
+  --blue: #339ddc;
+  --orange: #8f6009;
+  --yellow: #fab119;
+  --light-red: #f2d4d3;
+}
+
+html.light {
+  --color-bg: #fff;
+  --color-fg: var(--brown);
+  --color-border: var(--light-red);
+  --color-link: var(--blue);
+}

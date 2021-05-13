@@ -8,6 +8,26 @@ title: evolved.systems
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <script>
+  (function() {
+    if (sessionStorage.fontsLoaded) {
+      document.documentElement.className += ' fonts-loaded';
+      return;
+    }
+    if (document.fonts) {
+      Promise.all([
+        document.fonts.load('1em "Basier Square"'),
+        document.fonts.load('500 1em "Basier Square"'),
+        document.fonts.load('italic 1em "Basier Square"'),
+        document.fonts.load('bold 1em "Basier Square"'),
+        document.fonts.load('600 1em "Iosevka Aile Web"'),
+      ]).then(function() {
+        document.documentElement.className += ' fonts-loaded';
+        sessionStorage.fontsLoaded = true;
+      });
+    }
+  })();
+  </script>
 </head>
 <body>
   {{ content | safe }}

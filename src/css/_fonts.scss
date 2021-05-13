@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Basier Square";
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+
+  src: url("/static/basiersquare-regular-webfont.eot");
+  src: url("/static/basiersquare-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("/static/basiersquare-regular-webfont.woff2") format("woff2"),
+    url("/static/basiersquare-regular-webfont.woff") format("woff"),
+    url("/static/basiersquare-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Basier Square";
+  font-display: swap;
+  font-weight: normal;
+  font-style: italic;
+
+  src: url("/static/basiersquare-regularitalic-webfont.eot");
+  src: url("/static/basiersquare-regularitalic-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("/static/basiersquare-regularitalic-webfont.woff2") format("woff2"),
+    url("/static/basiersquare-regularitalic-webfont.woff") format("woff"),
+    url("/static/basiersquare-regularitalic-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Basier Square";
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+
+  src: url("/static/basiersquare-medium-webfont.eot");
+  src: url("/static/basiersquare-medium-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("/static/basiersquare-medium-webfont.woff2") format("woff2"),
+    url("/static/basiersquare-medium-webfont.woff") format("woff"),
+    url("/static/basiersquare-medium-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Basier Square";
+  font-display: swap;
+  font-weight: bold;
+  font-style: normal;
+
+  src: url("/static/basiersquare-bold-webfont.eot");
+  src: url("/static/basiersquare-bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("/static/basiersquare-bold-webfont.woff2") format("woff2"),
+    url("/static/basiersquare-bold-webfont.woff") format("woff"),
+    url("/static/basiersquare-bold-webfont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Iosevka Aile Web";
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+
+  src: url("/static/iosevka-aile-semibold.woff2") format("woff2"),
+    url("/static/iosevka-aile-semibold.ttf") format("truetype");
+}
+
+@mixin text {
+  .fonts-loaded & {
+    font-family: "Basier Square", Arial, Helvetica, sans-serif;
+  }
+}
+
+@mixin heading {
+  .fonts-loaded & {
+    font-family: "Iosevka Aile Web", monospace;
+  }
+}
