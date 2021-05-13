@@ -21,12 +21,17 @@ module.exports = function (config) {
       .map((p) =>
         Object.assign(p, {
           url: `/${p.slug}/`,
-          date: DateTime.fromMillis(p.created_ms, { zone: "UTC" }).toISO(),
+          date: DateTime.fromMillis(p.created_ms, { zone: "UTC" }).toJSDate(),
           editDate:
             p.edited_ms &&
-            DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toISO(),
+            DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate(),
         })
       );
+  });
+
+  // Add date formatting filters
+  config.addFilter("readableDate", (date) => {
+    return DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_FULL);
   });
 
   // Copy static assets
