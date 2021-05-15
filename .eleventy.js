@@ -33,6 +33,9 @@ module.exports = function (config) {
   config.addFilter("readableDate", (date) => {
     return DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_FULL);
   });
+  config.addFilter("isoDate", (date) => {
+    return DateTime.fromJSDate(date).toISO();
+  });
 
   // Copy static assets
   config.addPassthroughCopy("static");

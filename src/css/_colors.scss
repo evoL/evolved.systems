@@ -1,6 +1,8 @@
 :root {
   --brown: #1c1606;
+  --light-brown: #{rgba(#1c1606, 0.5)};
   --blue: #339ddc;
+  --greenish: #20635f;
   --orange: #8f6009;
   --yellow: #fab119;
   --light-red: #f2d4d3;
@@ -9,5 +11,7 @@
   --color-fg: var(--brown);
   --color-border: var(--light-red);
   --color-link: var(--blue);
+  --color-focused-link: var(--greenish);
   --color-heading: var(--orange);
+  --color-light-fg: var(--light-brown);
 }

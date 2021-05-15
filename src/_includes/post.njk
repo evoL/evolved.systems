@@ -1,6 +1,15 @@
 ---
 layout: layout.njk
 ---
-<h1>{{post.title}}</h1>
-<p>Written: {{post.date | readableDate}}</p>
-{{content | safe}}
+
+<article class="post">
+  <a href="{{post.url}}" class="post__permalink">
+    <time datetime="{{post.date | isoDate}}">{{post.date | readableDate}}</time>
+  </a>
+  <h1 class="post__title">{{post.title}}</h1>
+  <p class="post__summary">{{post.summary}}</p>
+
+  <div class="post__content">
+    {{content | safe}}
+  </div>
+</article>
