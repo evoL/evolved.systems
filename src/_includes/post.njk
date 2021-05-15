@@ -6,6 +6,11 @@ layout: layout.njk
   <a href="{{post.url}}" class="post__date">
     <time datetime="{{post.date | isoDate}}">{{post.date | readableDate}}</time>
   </a>
+  {% if post.editDate %}
+  <span class="post__editdate">
+    Edited on <time datetime="{{post.editDate | isoDate}}">{{post.editDate | readableDate}}</time>
+  </span>
+  {% endif %}
 
   <h1 class="post__title">{{post.title}}</h1>
   <p class="post__summary">{{post.summary}}</p>

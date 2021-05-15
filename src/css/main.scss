@@ -156,13 +156,25 @@ nav {
   margin-top: var(--space-s);
 }
 
-.post__date {
-  color: var(--color-heading);
+.post__date,
+.post__editdate {
   font-weight: 500;
   font-size: var(--step--1);
   letter-spacing: 0.12em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.post__date {
+  color: var(--color-heading);
+}
+
+.post__editdate {
+  color: var(--color-light-fg);
+
+  &::before {
+    content: "• ";
+  }
 }
 
 .post__content {
