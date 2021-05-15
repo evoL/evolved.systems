@@ -57,11 +57,11 @@
 @font-face {
   font-family: "Iosevka Aile Web";
   font-display: swap;
-  font-weight: 600;
+  font-weight: normal;
   font-style: normal;
 
-  src: url("/static/iosevka-aile-semibold.woff2") format("woff2"),
-    url("/static/iosevka-aile-semibold.ttf") format("truetype");
+  src: url("/static/iosevka-aile-regular.woff2") format("woff2"),
+    url("/static/iosevka-aile-regular.ttf") format("truetype");
 }
 
 @mixin text {

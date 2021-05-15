@@ -40,9 +40,9 @@ h4,
 h5 {
   @include fonts.heading;
   color: var(--color-heading);
-  font-weight: 600;
+  font-weight: normal;
   line-height: 1.2;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 a {
