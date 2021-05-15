@@ -6,6 +6,7 @@ const { DateTime } = require("luxon");
 const sass = require("sass");
 const CleanCSS = require("clean-css");
 const fs = require("fs-extra");
+const _ = require("lodash");
 
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
@@ -16,7 +17,7 @@ module.exports = function (config) {
       process.env.MATRIX_BLOG_ROOM_ID
     );
 
-    return posts
+    return _.chain(posts)
       .filter((p) => p.slug)
       .map((p) =>
         Object.assign(p, {
@@ -26,7 +27,19 @@ module.exports = function (config) {
             p.edited_ms &&
             DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate(),
         })
-      );
+      )
+      .sortBy((post) => post.date)
+      .reverse()
+      .value();
+  });
+
+  config.addCollection("postsByYear", (collection) => {
+    const posts = collection.getAll()[0].data.collections.posts;
+
+    return _.chain(posts)
+      .groupBy((post) => post.date.getFullYear())
+      .toPairs()
+      .value();
   });
 
   // Add date formatting filters

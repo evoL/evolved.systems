@@ -1,11 +1,20 @@
 ---
 layout: layout.njk
 ---
-<h1>Hello world</h1>
 
-<h2>Posts</h2>
-<ul>
-{%- for post in collections.posts -%}
-  <li><a href="{{post.url}}">{{ post.title }}</a></li>
+<div class="listing">
+{%- for year, posts in collections.postsByYear -%}
+  <h1 class="listing__year">{{year}}</h1>
+  <div class="listing__posts">
+    {%- for post in posts -%}
+      <article class="post listing__post">
+        <time class="post__date" datetime="{{post.date | isoDate}}">{{post.date | readableDate}}</time>
+        <h1 class="post__title">
+          <a href="{{post.url}}">{{post.title}}</a>
+        </h1>
+        <p class="post__summary">{{post.summary}}</p>
+      </article>      
+    {%- endfor -%}
+  </div>
 {%- endfor -%}
-</ul>
+</div>

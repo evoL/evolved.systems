@@ -3,9 +3,10 @@ layout: layout.njk
 ---
 
 <article class="post">
-  <a href="{{post.url}}" class="post__permalink">
+  <a href="{{post.url}}" class="post__date">
     <time datetime="{{post.date | isoDate}}">{{post.date | readableDate}}</time>
   </a>
+
   <h1 class="post__title">{{post.title}}</h1>
   <p class="post__summary">{{post.summary}}</p>
 
@@ -13,3 +14,12 @@ layout: layout.njk
     {{content | safe}}
   </div>
 </article>
+
+<nav>
+  {% if pagination.href.next %}
+    <a class="nav nav--prev" href="{{pagination.href.next}}">{{pagination.page.next.title}}</a>
+  {% endif %}
+  {% if pagination.href.previous %}
+    <a class="nav nav--next" href="{{pagination.href.previous}}">{{pagination.page.previous.title}}</a>
+  {% endif %}
+</nav>
