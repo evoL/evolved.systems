@@ -1,5 +1,5 @@
 ---
-title: evolved.systems
+title: evolved systems
 ---
 <!doctype html>
 <html lang="en">
@@ -30,5 +30,16 @@ title: evolved.systems
   </script>
 </head>
 <body>
-  {{ content | safe }}
+  <header>
+    <a class="logo" href="/" title="evolved systems">
+      {% include "logo.svg" %}
+    </a>
+  </header>
+  
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+  </footer>
 </body>

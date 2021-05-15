@@ -65,13 +65,15 @@
 }
 
 @mixin text {
+  font-family: Arial, Helvetica, sans-serif;
   .fonts-loaded & {
     font-family: "Basier Square", Arial, Helvetica, sans-serif;
   }
 }
 
 @mixin heading {
+  font-family: Menlo, Consolas, monospace;
   .fonts-loaded & {
-    font-family: "Iosevka Aile Web", monospace;
+    font-family: "Iosevka Aile Web", Menlo, Consolas, monospace;
   }
 }

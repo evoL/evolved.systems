@@ -1,0 +1,17 @@
+:root {
+  --viewport-scale: 0px;
+}
+@media screen and (min-width: 375px) {
+  :root {
+    --viewport-scale: calc((100vw - 375px) / (1104 - 375));
+  }
+}
+@media screen and (min-width: 1104px) {
+  :root {
+    --viewport-scale: 1px;
+  }
+}
+
+@function between($from, $to) {
+  @return calc(#{$from} + var(--viewport-scale) * #{($to - $from) / 1px});
+}
