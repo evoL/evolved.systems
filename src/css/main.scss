@@ -101,6 +101,7 @@ footer {
   background-position: right bottom, left bottom;
   background-size: auto 28px, auto 42px;
   color: var(--color-light-fg);
+  font-size: var(--step-0);
   margin-top: var(--space-2xl);
   padding-bottom: var(--space-3xl);
   text-align: center;
@@ -113,6 +114,11 @@ footer {
     margin: 0 auto;
     padding-top: var(--space-2xl);
     width: 28ch;
+  }
+
+  a {
+    // Force no line breaks.
+    display: inline-block;
   }
 }
 
@@ -195,7 +201,12 @@ nav {
 }
 
 .post__date {
-  color: var(--color-heading);
+  color: var(--color-date);
+
+  &:hover,
+  &:focus {
+    color: var(--color-focused-date);
+  }
 }
 
 .post__editdate {
@@ -296,7 +307,10 @@ nav {
 
   &:active {
     &::before {
-      transform: translate(-0.75em, -1em) skewY(0deg) skewX(-55deg);
+      transform: translate(-1em, -1em) skewY(1deg) skewX(-55deg);
+    }
+    &::after {
+      transform: translate(1.5em, 1.25em) skewX(30deg) skewY(-1deg);
     }
   }
 }
@@ -328,7 +342,15 @@ nav {
 }
 
 .listing__post + .listing__post {
-  margin-top: var(--space-l);
+  margin-top: var(--space-m);
+
+  &::before {
+    border-top: 1px solid var(--color-border);
+    content: "";
+    display: block;
+    margin-bottom: var(--space-m);
+    width: 8em;
+  }
 }
 
 @media screen and (min-width: 596px) {

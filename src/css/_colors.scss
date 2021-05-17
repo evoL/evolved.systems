@@ -17,6 +17,10 @@ $teal-900: $teal;
 $teal-600: #2cb0b7;
 
 $orange-900: $orange;
+$orange-800: #b3840f;
+$orange-700: #c89912;
+$orange-600: #dead16;
+$orange-500: #eebe18;
 $orange-50: #fff7e3;
 
 $green-300: $green;
@@ -36,7 +40,9 @@ $red-50: $red;
   --color-link: #{$blue-600};
   --color-focused-link: #{$teal-600};
   --color-heading: #{$orange-900};
-  --color-focused-heading: #{$yellow-800};
+  --color-focused-heading: #{$orange-700};
+  --color-date: #{$orange-700};
+  --color-focused-date: #{$orange-600};
   --color-action: #{$yellow-900};
   --color-focused-action: #{$orange-900};
   --color-flourish1: #{$teal-600};
