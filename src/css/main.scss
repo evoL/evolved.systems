@@ -4,6 +4,10 @@
 @use './typescale';
 @use './units';
 
+//
+// Reset
+//
+
 html,
 body,
 h1,
@@ -16,6 +20,10 @@ p {
   margin: 0;
   padding: 0;
 }
+
+//
+// General site layout
+//
 
 body {
   min-height: 100vh;
@@ -108,6 +116,10 @@ footer {
   }
 }
 
+//
+// Previous/next post navigation
+//
+
 nav {
   margin-top: var(--space-l);
 
@@ -129,7 +141,7 @@ nav {
     @include fonts.text;
     color: inherit;
     font-size: inherit;
-    font-weight: 500;
+    font-weight: normal;
     letter-spacing: normal;
   }
 
@@ -150,6 +162,10 @@ nav {
   }
 }
 
+//
+// Post styling
+//
+
 .post__title {
   font-size: var(--step-3);
 
@@ -159,7 +175,7 @@ nav {
 
     &:hover,
     &:focus {
-      color: var(--color-focused-link);
+      color: var(--color-focused-heading);
     }
   }
 }
@@ -209,6 +225,85 @@ nav {
     font-size: var(--step-1);
   }
 }
+
+//
+// Post actions (e.g. discuss button)
+//
+
+.actions {
+  margin-top: var(--space-l);
+  text-align: center;
+}
+
+.discuss-btn {
+  display: inline-block;
+  position: relative;
+
+  span {
+    color: var(--color-action);
+    display: inline-block;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-action);
+    padding: 0 1em;
+    text-decoration: none;
+    transition: color 150ms, border-color 150ms;
+    line-height: 2.5em;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    transition: transform 200ms;
+    // z-index: 2;
+  }
+
+  &::before {
+    border-bottom: 1.5em solid var(--color-flourish1);
+    border-right: 12em solid transparent;
+    transform: translate(0.1em, -1.25em) rotate(-7deg);
+    transform-origin: top right;
+  }
+  &::after {
+    border-top: 1.5em solid var(--color-flourish2);
+    border-left: 12em solid transparent;
+    bottom: 0;
+    right: 0;
+    transform: translate(-0.1em, 1.2em) skewX(45deg) skewY(-10deg);
+    transform-origin: top left;
+    transition-delay: 50ms;
+  }
+
+  &:hover,
+  &:focus {
+    span {
+      color: var(--color-focused-action);
+      border-color: var(--color-focused-action);
+    }
+
+    &::before {
+      transform: translate(-0.5em, -1em) skewY(-1deg) skewX(-45deg);
+    }
+
+    &::after {
+      transform: translate(1em, 1.25em) skewX(20deg) skewY(-3deg);
+    }
+  }
+
+  &:active {
+    &::before {
+      transform: translate(-0.75em, -1em) skewY(0deg) skewX(-55deg);
+    }
+  }
+}
+
+//
+// Post listing page
+//
 
 .listing {
   .post__date {

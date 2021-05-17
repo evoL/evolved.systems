@@ -26,6 +26,7 @@ module.exports = function (config) {
           editDate:
             p.edited_ms &&
             DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate(),
+          roomAlias: blogService.createRoomAlias(p.slug),
         })
       )
       .sortBy((post) => post.date)

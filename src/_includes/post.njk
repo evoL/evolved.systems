@@ -20,6 +20,12 @@ layout: layout.njk
   </div>
 </article>
 
+<section class="actions">
+  <a href="https://matrix.to/#/{{post.roomAlias}}" class="discuss-btn" target="_blank">
+    <span>Discuss this post on Matrix</span>
+  </a>
+</section>
+
 <nav>
   {% if pagination.href.next %}
   <section class="nav nav--prev">

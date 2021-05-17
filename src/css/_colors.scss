@@ -1,18 +1,45 @@
-:root {
-  --brown: #1c1606;
-  --light-brown: #{rgba(#1c1606, 0.5)};
-  --blue: #339ddc;
-  --greenish: #20635f;
-  --orange: #8f6009;
-  --yellow: #fab119;
-  --light-red: #f2d4d3;
+// Base colors
+$brown: #1c1606;
+$blue: #339ddc;
+$teal: #20635f;
+$orange: #8f6009;
+$yellow: #fab119;
+$green: #a3c683;
+$red: #f2d4d3;
 
+// Derived color palettes -- use those!
+$brown-900: $brown;
+$brown-500: #978f80;
+
+$blue-600: $blue;
+
+$teal-900: $teal;
+$teal-600: #2cb0b7;
+
+$orange-900: $orange;
+$orange-50: #fff7e3;
+
+$green-300: $green;
+
+$yellow-900: #f87210;
+$yellow-800: #f99014;
+$yellow-600: $yellow;
+$yellow-50: #fef8e2;
+
+$red-50: $red;
+
+:root {
   --color-bg: #fff;
-  --color-fg: var(--brown);
-  --color-border: var(--light-red);
-  --color-link: var(--blue);
-  --color-focused-link: var(--greenish);
-  --color-heading: var(--orange);
-  --color-light-fg: var(--light-brown);
-  --color-year: var(--light-red);
+  --color-fg: #{$brown-900};
+  --color-light-fg: #{$brown-500};
+  --color-border: #{$red-50};
+  --color-link: #{$blue-600};
+  --color-focused-link: #{$teal-600};
+  --color-heading: #{$orange-900};
+  --color-focused-heading: #{$yellow-800};
+  --color-action: #{$yellow-900};
+  --color-focused-action: #{$orange-900};
+  --color-flourish1: #{$teal-600};
+  --color-flourish2: #{$yellow-600};
+  --color-year: #{$red-50};
 }
