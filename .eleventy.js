@@ -7,6 +7,7 @@ const sass = require("sass");
 const CleanCSS = require("clean-css");
 const fs = require("fs-extra");
 const _ = require("lodash");
+const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
@@ -42,6 +43,9 @@ module.exports = function (config) {
       .toPairs()
       .value();
   });
+
+  // Add a cache buster to CSS files
+  config.addPlugin(cacheBuster({}));
 
   // Add date formatting filters
   config.addFilter("readableDate", (date) => {
