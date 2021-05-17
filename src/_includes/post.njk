@@ -22,9 +22,15 @@ layout: layout.njk
 
 <nav>
   {% if pagination.href.next %}
-    <a class="nav nav--prev" href="{{pagination.href.next}}">{{pagination.page.next.title}}</a>
+  <section class="nav nav--prev">
+    <h6>Previous post</h6>
+    <a href="{{pagination.href.next}}">{{pagination.page.next.title}}</a>
+  </section>
   {% endif %}
   {% if pagination.href.previous %}
-    <a class="nav nav--next" href="{{pagination.href.previous}}">{{pagination.page.previous.title}}</a>
+  <section class="nav nav--next">
+    <h6>Next post</h6>
+    <a href="{{pagination.href.previous}}">{{pagination.page.previous.title}}</a>
+  </section>
   {% endif %}
 </nav>
