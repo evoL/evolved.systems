@@ -9,7 +9,9 @@ $red: #f2d4d3;
 
 // Derived color palettes -- use those!
 $brown-900: $brown;
+$brown-800: #3c3629;
 $brown-500: #978f80;
+$brown-50: #fff7e7;
 
 $blue-600: $blue;
 
@@ -23,7 +25,9 @@ $orange-600: #dead16;
 $orange-500: #eebe18;
 $orange-50: #fff7e3;
 
+$green-600: #70a147;
 $green-300: $green;
+$green-50: #eff5e9;
 
 $yellow-900: #f87210;
 $yellow-800: #f99014;
@@ -43,9 +47,11 @@ $red-50: $red;
   --color-focused-heading: #{$orange-700};
   --color-date: #{$orange-700};
   --color-focused-date: #{$orange-600};
-  --color-action: #{$yellow-900};
+  --color-action: #{$green-600};
   --color-focused-action: #{$orange-900};
   --color-flourish1: #{$teal-600};
   --color-flourish2: #{$yellow-600};
   --color-year: #{$red-50};
+  --color-code-bg: #{$green-50};
+  --color-code-fg: #{$brown-800};
 }

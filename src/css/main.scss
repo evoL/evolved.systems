@@ -16,6 +16,9 @@ h3,
 h4,
 h5,
 h6,
+ul,
+ol,
+li,
 p {
   margin: 0;
   padding: 0;
@@ -53,6 +56,11 @@ h6 {
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: -0.04em;
+}
+
+code {
+  @include fonts.code;
+  font-size: 95%;
 }
 
 a {
@@ -225,6 +233,8 @@ nav {
   h3,
   h4,
   h5,
+  ul,
+  ol,
   p {
     margin-top: var(--space-s);
   }
@@ -234,6 +244,16 @@ nav {
   }
   h2 {
     font-size: var(--step-1);
+  }
+  ul,
+  ol {
+    margin-left: var(--space-l);
+  }
+
+  code {
+    background-color: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: 0.125em 0.25em;
   }
 }
 
