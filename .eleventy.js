@@ -12,7 +12,7 @@ const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.addCollection("posts", async (collection) => {
     const posts = await blogService.getFullPosts(
       process.env.MATRIX_BLOG_ROOM_ID
@@ -23,9 +23,9 @@ module.exports = function (config) {
       .map((p) =>
         Object.assign(p, {
           url: `/${p.slug}/`,
-          date: DateTime.fromMillis(p.created_ms, { zone: "UTC" }).toJSDate(),
+          date: DateTime.fromMillis(p.published_ms, { zone: "UTC" }).toJSDate(),
           editDate:
-            p.edited_ms &&
+            p.edited_ms && p.edited_ms > p.published_ms &&
             DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate(),
           roomAlias: blogService.createRoomAlias(p.slug),
         })
