@@ -8,11 +8,12 @@ const CleanCSS = require("clean-css");
 const fs = require("fs-extra");
 const _ = require("lodash");
 const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
+const rssPlugin = require("@11ty/eleventy-plugin-rss");
 
 const matrixClient = getMatrixClient();
 const blogService = new BlogService(matrixClient);
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.addCollection("posts", async (collection) => {
     const posts = await blogService.getFullPosts(
       process.env.MATRIX_BLOG_ROOM_ID
@@ -20,16 +21,23 @@ module.exports = function(config) {
 
     return _.chain(posts)
       .filter((p) => p.slug)
-      .map((p) =>
-        Object.assign(p, {
+      .map((p) => {
+        const date = DateTime.fromMillis(p.published_ms, {
+          zone: "UTC",
+        }).toJSDate();
+        const editDate =
+          p.edited_ms &&
+          p.edited_ms > p.published_ms &&
+          DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate();
+
+        return Object.assign(p, {
           url: `/${p.slug}/`,
-          date: DateTime.fromMillis(p.published_ms, { zone: "UTC" }).toJSDate(),
-          editDate:
-            p.edited_ms && p.edited_ms > p.published_ms &&
-            DateTime.fromMillis(p.edited_ms, { zone: "UTC" }).toJSDate(),
+          date,
+          editDate,
+          updatedDate: editDate || date,
           roomAlias: blogService.createRoomAlias(p.slug),
-        })
-      )
+        });
+      })
       .sortBy((post) => post.date)
       .reverse()
       .value();
@@ -43,6 +51,9 @@ module.exports = function(config) {
       .toPairs()
       .value();
   });
+
+  // Add support for RSS feeds
+  config.addPlugin(rssPlugin);
 
   // Add a cache buster to CSS files
   config.addPlugin(cacheBuster({}));
