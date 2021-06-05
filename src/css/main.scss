@@ -249,6 +249,10 @@ nav {
   ol {
     margin-left: var(--space-l);
   }
+  li ul,
+  li ol {
+    margin-top: 0;
+  }
 
   code {
     background-color: var(--color-code-bg);
