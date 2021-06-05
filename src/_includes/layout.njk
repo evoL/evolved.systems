@@ -11,6 +11,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
   <link rel="manifest" href="/static/site.webmanifest">
   <link rel="alternate" type="application/atom+xml" title="Subscribe to evolved.systems" href="https://evolved.systems/feed.xml">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@HDevo">
+  <meta property="og:url" content="{{post.url | url | absoluteUrl('https://evolved.systems/')}}">
+  <meta property="og:title" content="{% if title %}{{title}}{% else %}evolved.systems{% endif %}">
+  {%if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+  <meta property="og:image" content="https://evolved.systems/static/thumbnail.png">
   <script>
   (function() {
     if (sessionStorage.fontsLoaded) {
