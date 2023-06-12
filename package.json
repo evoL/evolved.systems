@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "evolved.systems blog",
   "scripts": {
+    "build": "eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rafał Hirsz",
@@ -11,7 +12,7 @@
     "@11ty/eleventy": "^0.12.1",
     "dotenv": "^9.0.2",
     "luxon": "^1.26.0",
-    "matrix-blog": "file:../library",
+    "matrix-blog": "^0.1.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
